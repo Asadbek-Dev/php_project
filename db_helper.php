@@ -17,6 +17,7 @@ function getCategoryList($page){
      $state=$conn->prepare($sql_insert);
      $state->bindValue(":title",$title);
      $state->execute();
+
  }
  function getPagination(){
      include 'dbconnect.php';
