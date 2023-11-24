@@ -26,3 +26,20 @@ function getCategoryList($page){
     $total_rows = $state->rowCount();
     return  ceil($total_rows/LIMIT);
  }
+ function getCategoryById($id){
+     include 'dbconnect.php';
+     $sql="select * from category where id=:id";
+     $state=$conn->prepare($sql);
+     $state->bindValue(":id",$id, PDO::PARAM_INT);
+     $state->execute();
+     return $state->fetch(PDO::FETCH_ASSOC);
+ }
+function updateCategory($id, $title)
+{
+    include 'dbconnect.php';
+    $sql="update category set title=:title where id=:id";
+    $state=$conn->prepare($sql);
+    $state->bindValue(":id",$id, PDO::PARAM_INT);
+    $state->bindValue(":title",$title);
+    $state->execute();
+}

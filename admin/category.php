@@ -13,6 +13,7 @@ if (isset($_GET['page'])){
         <tr>
             <th scope="col">#id</th>
             <th scope="col">Kategoriya nomi</th>
+            <th scope="col">#</th>
         </tr>
         </thead>
         <tbody>
@@ -20,6 +21,8 @@ if (isset($_GET['page'])){
             echo "<tr>";
             echo "<td>".$item['id']."</td>";
             echo "<td>".$item['title']."</td>";
+            echo "<td><a href='/admin/update_category.php?id=".$item['id']."' class='btn btn-primary'>Update</a>
+                        <a href='/admin/delete_category.php?id=".$item['id']."' class='btn btn-danger'>Delete</a></td>";
             echo "</tr>";
         }?>
         </tbody>
